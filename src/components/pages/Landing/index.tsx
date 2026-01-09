@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../../ui/Button";
 import { Brain, Zap, Target } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../ui/Card";
-import PixelSpaceship from "../../pixel/PixelSpaceship";
 import PixelCoin from "../../pixel/PixelCoin";
 import PixelStar from "../../pixel/PixelStar";
 
@@ -33,17 +32,17 @@ const Index = () => {
         <PixelCoin className="absolute bottom-[25%] left-[8%] w-8 h-8 animate-bounce" style={{ animationDelay: "0.3s", animationDuration: "2.8s" }} />
       </div>
 
-      <div className="fixed top-4 left-4 w-8 h-8 border-4 border-foreground bg-status-red shadow-[2px_2px_0px_hsl(var(--foreground))]" />
-      <div className="fixed top-4 right-4 w-8 h-8 border-4 border-foreground bg-status-yellow shadow-[2px_2px_0px_hsl(var(--foreground))]" />
-      <div className="fixed bottom-4 left-4 w-8 h-8 border-4 border-foreground bg-status-green shadow-[2px_2px_0px_hsl(var(--foreground))]" />
-      <div className="fixed bottom-4 right-4 w-8 h-8 border-4 border-foreground bg-primary shadow-[2px_2px_0px_hsl(var(--foreground))]" />
+      <div className="fixed top-4 left-4 w-8 h-8 border-4 border-foreground bg-status-red shadow-[2px_2px_0px_#1a1a1a]" />
+      <div className="fixed top-4 right-4 w-8 h-8 border-4 border-foreground bg-status-yellow shadow-[2px_2px_0px_#1a1a1a]" />
+      <div className="fixed bottom-4 left-4 w-8 h-8 border-4 border-foreground bg-status-green shadow-[2px_2px_0px_#1a1a1a]" />
+      <div className="fixed bottom-4 right-4 w-8 h-8 border-4 border-foreground bg-primary shadow-[2px_2px_0px_#1a1a1a]" />
       
 
       <div className="container mx-auto px-6 py-16 md:py-20">
         <div className="text-center max-w-4xl mx-auto mb-16 md:mb-20 animate-fade-in">
           
           <div className="relative inline-block mb-6">
-            <h1 className="mt-15 font-pixel text-4xl md:text-5xl lg:text-8xl text-foreground tracking-wider">
+            <h1 className="mt-20 font-pixel text-5xl sm:text-6xl md:text-6xl lg:text-7xl text-foreground tracking-wider">
               KNOLI
             </h1>
             <div className="absolute -bottom-2 left-0 right-0 h-1 bg-foreground" />
@@ -57,12 +56,12 @@ const Index = () => {
           <div className="flex justify-center items-center gap-3 mb-8">
             <PixelCoin className="w-6 h-6" />
             <p className="font-retro text-xl md:text-2xl text-muted-foreground">
-              Practice. Memorize. Learn.
+              Level Up Your Brain!
             </p>
             <PixelCoin className="w-6 h-6" />
           </div>
           
-          <div className="mt-5 inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 mb-12 shadow-[4px_4px_0px_hsl(var(--foreground))]">
+          <div className="inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 mb-4 shadow-[4px_4px_0px_var(--color-foreground)]">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-status-red border-2 border-foreground " />
               <span className="font-pixel text-xs">NEW</span>
@@ -79,17 +78,22 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="mt-5 flex gap-4 md:gap-6 justify-center text-primary-foreground flex-wrap mb-6">
-            <Button size="lg" onClick={() => navigate("/auth")} className="min-w-[160px] bg-primary ">
+          <div className="mt-4 flex gap-4 md:gap-6 justify-center text-primary-foreground flex-wrap mb-6">
+            <Button 
+            onClick={() => navigate("/auth", {state: {mode: "signup"}})} 
+            className="min-w-[240px] bg-primary py-6"
+            >
               <span className="mr-2">▶</span> NEW GAME
             </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate("/auth")} className="min-w-[160px]">
+            <Button 
+            variant="outline" 
+            onClick={() => navigate("/auth", {state: {mode: "signup"}})} 
+            className="min-w-[240px] py-6">
               <span className="mr-2">↻</span> CONTINUE
             </Button>
           </div>
           
-
-          <div className="font-pixel text-xs text-muted-foreground">
+          <div className="font-pixel text-xs text-muted-foreground mb-25">
             INSERT COIN TO START<span className="blink">_</span>
           </div>
         </div>
@@ -142,7 +146,7 @@ const Index = () => {
             </CardHeader>
             <CardContent className="space-y-6 pt-6">
               <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex-shrink-0 border-4 border-foreground bg-status-red shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 border-4 border-foreground bg-status-red shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
                   <span className="font-pixel text-xs text-primary-foreground">1</span>
                 </div>
                 <div>
@@ -154,7 +158,7 @@ const Index = () => {
               </div>
               
               <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex-shrink-0 border-4 border-foreground bg-status-yellow shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 border-4 border-foreground bg-status-yellow shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
                   <span className="font-pixel text-xs text-foreground">2</span>
                 </div>
                 <div>
@@ -166,7 +170,7 @@ const Index = () => {
               </div>
               
               <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex-shrink-0 border-4 border-foreground bg-status-green shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 border-4 border-foreground bg-status-green shadow-[3px_3px_0px_hsl(var(--foreground))] flex items-center justify-center">
                   <span className="font-pixel text-xs text-primary-foreground">3</span>
                 </div>
                 <div>
@@ -181,11 +185,11 @@ const Index = () => {
         </div>
         
         <div className="text-center mt-12 md:mt-16">
-          <div className="inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 shadow-[4px_4px_0px_hsl(var(--foreground))]">
-            <span className="font-pixel text-xs">© 2024 KNOLI SYSTEMS</span>
+          <div className="inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 shadow-[4px_4px_0px_var(--color-foreground)]">
+            <span className="font-pixel text-xs">© 2025 KNOLI SYSTEMS</span>
           </div>
           <p className="mt-4 font-pixel text-xs text-muted-foreground">
-            CREDITS: ∞ <span className="inline-block mx-2">|</span> HIGH SCORE: ???
+            CREDITS: 1111 <span className="inline-block mx-2">|</span> HIGH SCORE: ???
           </p>
         </div>
       </div>

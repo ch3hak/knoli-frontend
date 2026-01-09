@@ -8,7 +8,7 @@ export default function Input(props: InputProps) {
   return (
     <input
       {...props}
-      className={`px-3 py-2 border rounded ${props.className ?? ""}`}
+      className={`px-3 bg-input rounded ${props.className ?? ""}`}
     />
   );
 }
