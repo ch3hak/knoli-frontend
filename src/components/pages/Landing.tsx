@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../ui/Button";
+import { Button } from "../ui/Button";
 import { Brain, Zap, Target } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../ui/Card";
-import PixelCoin from "../../pixel/PixelCoin";
-import PixelStar from "../../pixel/PixelStar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card";
+import PixelCoin from "../pixel/PixelCoin";
+import PixelStar from "../pixel/PixelStar";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Index = () => {
       </div>
 
 
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+      <div className="fixed inset-0 pointer-events-none overflow-hidden hidden sm:block">
         <PixelCoin className="absolute top-[20%] right-[8%] w-8 h-8 animate-bounce" style={{ animationDelay: "0s", animationDuration: "2s" }} />
         <PixelCoin className="absolute top-[40%] left-[5%] w-6 h-6 animate-bounce" style={{ animationDelay: "0.5s", animationDuration: "2.5s" }} />
         <PixelCoin className="absolute top-[60%] right-[12%] w-7 h-7 animate-bounce" style={{ animationDelay: "1s", animationDuration: "2.2s" }} />
@@ -61,34 +61,55 @@ const Index = () => {
             <PixelCoin className="w-6 h-6" />
           </div>
           
-          <div className="inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 mb-4 shadow-[4px_4px_0px_var(--color-foreground)]">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-status-red border-2 border-foreground " />
-              <span className="font-pixel text-xs">NEW</span>
+          <div
+            className="
+              inline-flex flex-wrap sm:flex-nowrap items-center
+              gap-2 sm:gap-3 md:gap-4
+              border-4 border-foreground
+              bg-card
+              px-3 py-2 sm:px-4 sm:py-2.5 md:px-6 md:py-3
+              mb-4
+              shadow-[4px_4px_0px_var(--color-foreground)]
+            "
+          >
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-status-red border-2 border-foreground" />
+              <span className="font-pixel text-[10px] sm:text-xs tracking-wide">
+                NEW
+              </span>
             </div>
-            <div className="w-1 h-6 bg-foreground" />
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-status-yellow border-2 border-foreground" />
-              <span className="font-pixel text-xs">LEARNING</span>
+
+            <div className="w-[2px] h-4 sm:h-5 md:h-6 bg-foreground" />
+
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-status-yellow border-2 border-foreground" />
+              <span className="font-pixel text-[10px] sm:text-xs tracking-wide">
+                LEARNING
+              </span>
             </div>
-            <div className="w-1 h-6 bg-foreground" />
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-status-green border-2 border-foreground" />
-              <span className="font-pixel text-xs">MASTERED</span>
+
+            <div className="w-[2px] h-4 sm:h-5 md:h-6 bg-foreground" />
+
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-status-green border-2 border-foreground" />
+              <span className="font-pixel text-[10px] sm:text-xs tracking-wide">
+                MASTERED
+              </span>
             </div>
           </div>
+
           
           <div className="mt-4 flex gap-4 md:gap-6 justify-center text-primary-foreground flex-wrap mb-6">
             <Button 
             onClick={() => navigate("/auth", {state: {mode: "signup"}})} 
-            className="min-w-[240px] bg-primary py-6"
+            className="min-w-[180px] sm:min-w-[240px] bg-primary py-2 sm:py-6"
             >
               <span className="mr-2">▶</span> NEW GAME
             </Button>
             <Button 
             variant="outline" 
-            onClick={() => navigate("/auth", {state: {mode: "signup"}})} 
-            className="min-w-[240px] py-6">
+            onClick={() => navigate("/auth", {state: {mode: "login"}})} 
+            className="min-w-[180px] sm:min-w-[240px] py-2 sm:py-6">
               <span className="mr-2">↻</span> CONTINUE
             </Button>
           </div>
@@ -188,7 +209,7 @@ const Index = () => {
           <div className="inline-flex items-center gap-4 border-4 border-foreground bg-card px-6 py-3 shadow-[4px_4px_0px_var(--color-foreground)]">
             <span className="font-pixel text-xs">© 2025 KNOLI SYSTEMS</span>
           </div>
-          <p className="mt-4 font-pixel text-xs text-muted-foreground">
+          <p className="mt-4 font-pixel text-[10px] sm:text-xs text-muted-foreground">
             CREDITS: 1111 <span className="inline-block mx-2">|</span> HIGH SCORE: ???
           </p>
         </div>

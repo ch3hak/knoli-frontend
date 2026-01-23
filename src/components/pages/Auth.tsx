@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Button } from "../../ui/Button";
-import  Input  from "../../ui/Input";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "../../ui/Card";
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "../../ui/Tabs";
-import  Label  from "../../ui/Label";
-import { useToast } from "../../../hooks/useToast";
-import { Spotlight } from "../../ui/Spotlight";
-
-const API_BASE = "http://localhost:5001";  
+import { Button } from "../ui/Button";
+import  Input  from "../ui/Input";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "../ui/Card";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "../ui/Tabs";
+import  Label  from "../ui/Label";
+import { useToast } from "../../hooks/useToast";
+import { Spotlight } from "../ui/Spotlight"; 
 
 const Auth = () => {
   const location = useLocation();
@@ -33,7 +31,7 @@ const Auth = () => {
         ? { email, password }
         : { firstName, email, password };
 
-      const res = await fetch(`${API_BASE}${endpoint}`, {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +44,7 @@ const Auth = () => {
 
       if (!res.ok) {
         toast({
-          title: "Authentication failed",
+          title: "⚠️ Authentication failed",
           description: data?.message || "Something went wrong",
         });
         return;
@@ -60,7 +58,7 @@ const Auth = () => {
       navigate("/dashboard");
     } catch (err) {
       toast({
-        title: "Network error",
+        title: "⚠️ Network error",
         description: "Could not reach server",
       });
     }
@@ -91,7 +89,7 @@ const Auth = () => {
 
         <Card className="shadow-(--shadow-card) h-[500px] backdrop-blur-xl">
           <CardHeader>
-            <CardTitle className="text-2xl">
+            <CardTitle className=" text-xl sm:text-2xl">
               {isLogin ? "Welcome": "Create account"}
             </CardTitle>
             <CardDescription className="text-base">
@@ -198,7 +196,7 @@ const Auth = () => {
                       placeholder="••••••••"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="h-10 text-base"
+                      className="h-10 text-base w-full"
                       required
                     />
                   </div>
