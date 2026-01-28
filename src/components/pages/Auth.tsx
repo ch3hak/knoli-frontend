@@ -79,7 +79,7 @@ const Auth = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="text-center mt-5 mb-7">
-          <h1 className="text-5xl font-bold text-primary ">
+          <h1 onClick={() => navigate("/")} className="text-5xl font-bold text-primary cursor-pointer">
             KNOLI
           </h1>
           <p className="text-muted-foreground text-lg">

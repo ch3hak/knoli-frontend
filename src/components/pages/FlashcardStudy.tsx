@@ -458,28 +458,30 @@ const FlashcardStudy = () => {
             onTouchEnd={onTouchEnd}
           >
             <div 
-              className="h-[380px] sm:min-h-[300px] relative overflow-hidden bg-card border-4 "
+              className="h-[380px] sm:min-h-[300px] relative bg-card border-4 pb-10 flex flex-col"
               style={{ borderColor: getStatusColor(currentCard.status) }}
             >              
-              <div className="p-8 md:p-12 h-full flex items-center justify-center min-h-[300px]">
-                <div className="text-center w-full relative h-full flex flex-col">
-                  <div className="flex justify-center gap-2 mb-6">
+              <div className="flex-1 flex flex-col overflow-hidden">
+                <div className="text-center w-full flex flex-col h-full">
+                  <div className="flex justify-center gap-2 mb-4 mt-8 md:mt-12 flex-shrink-0">
                     <div className={`w-4 h-4 border-2 border-muted-foreground ${!isFlipped ? 'bg-primary' : ''}`} />
                     <div className={`w-4 h-4 border-2 border-muted-foreground ${isFlipped ? 'bg-primary' : ''}`} />
                   </div>
                   
-                  <p className="font-pixel text-sm text-muted-foreground uppercase tracking-wider">
+                  <p className="font-pixel text-sm text-muted-foreground uppercase tracking-wider mb-4 flex-shrink-0 px-8 md:px-12">
                     {isFlipped ? "[ ANSWER ]" : "[ QUESTION ]"}
                   </p>
                   
-                  <div className="flex-1 flex items-center justify-center">
-                    <p className="text-2xl sm:text-3xl leading-relaxed">
-                      {isFlipped ? currentCard.back : currentCard.front}
-                    </p>
+                  <div className="flex-1 overflow-y-auto px-8 md:px-12 pb-4">
+                    <div className="flex items-center justify-center min-h-full">
+                      <p className="text-2xl sm:text-3xl mr-10 ml-10">
+                        {isFlipped ? currentCard.back : currentCard.front}
+                      </p>
+                    </div>
                   </div>
                   
                   {!isFlipped && !showAnswer && (
-                    <p className="font-pixel text-[10px] text-muted-foreground">
+                    <p className="font-pixel text-[10px] text-muted-foreground mb-8 md:mb-12 flex-shrink-0">
                       TAP TO FLIP<span className="animate-pulse">_</span>
                     </p>
                   )}

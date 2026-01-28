@@ -141,7 +141,7 @@ const Dashboard = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div className="flex flex-col mt-8 gap-0">
-            <h1 className="font-pixel text-2xl md:text-3xl text-primary leading-tight">KNOLI</h1>
+            <h1 onClick={() => navigate("/dashboard")} className="font-pixel text-2xl md:text-3xl text-primary leading-tight cursor-pointer">KNOLI</h1>
             <p className="font-retro text-lg text-muted-foreground -mt-1">
               Mission Control
             </p>
@@ -211,12 +211,12 @@ const Dashboard = () => {
                 onClick={() => navigate(`/deck/${deck._id}`)}
                 className="p-6 cursor-pointer"
               >
-                <h3 className="font-pixel text-sm">{deck.title}</h3>
-                <p className="font-retro">{deck.description}</p>
+                <h3 className="font-pixel uppercase text-sm">{deck.title}</h3>
+                <p className="font-retro text-xl text-muted-foreground">{deck.description}</p>
 
-                <div className="mt-4 flex justify-between">
-                  <span>Cards</span>
-                  <span>{deck.cardCount}</span>
+                <div className="mt-4 flex justify-between items-center">
+                  <span className="text-md sm:text-lg text-muted-foreground">Cards</span>
+                  <span className="font-pixel text-xs sm:text-[10px] text-muted-foreground">{deck.cardCount}</span>
                 </div>
 
                 {deck.cardCount > 0 && (
@@ -236,8 +236,8 @@ const Dashboard = () => {
                   </div>
                 )}
 
-                <div className="mt-4 border-t-2 pt-2">
-                  <PixelCoin /> LVL {deck.level}
+                <div className="flex items-center gap-1 mt-4 border-t-2 pt-2">
+                  <PixelCoin className="w-4 h-4"/> LVL {deck.level}
                 </div>
               </Card>
             ))}

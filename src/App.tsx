@@ -9,6 +9,7 @@ import FlashcardStudy from "./components/pages/FlashcardStudy";
 // import Profile from "./components/pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "./components/ui/Toaster";
+import AIUpload from "./components/pages/AIUpload";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,7 @@ export default function App() {
         { path: "/deck/:id", element: <DeckView /> },
         { path: "/deck/:id/card/new", element: <CreateCard /> },
         { path: "/deck/:id/study", element: <FlashcardStudy /> },
+        { path: "/upload", element: <AIUpload /> }
         // { path: "/profile", element: <Profile /> },
       ],
     },
