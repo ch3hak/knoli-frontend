@@ -153,14 +153,14 @@ const DeckView = () => {
     }
   };
 
-  const getStatusBorder = (status: CardStatus) => {
-    switch (status) {
-      case "green": return "border-status-green";
-      case "yellow": return "border-status-yellow";
-      case "red": return "border-status-red";
-      default: return "border-status-red";
-    }
-  };
+  // const getStatusBorder = (status: CardStatus) => {
+  //   switch (status) {
+  //     case "green": return "border-status-green";
+  //     case "yellow": return "border-status-yellow";
+  //     case "red": return "border-status-red";
+  //     default: return "border-status-red";
+  //   }
+  // };
 
   const getStatusLabel = (cardId: string): CardStatus => {
     return cardProgress.get(cardId) || "red";

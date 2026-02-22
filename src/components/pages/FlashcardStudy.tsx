@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { ArrowLeft, ArrowRight, Eye, EyeOff, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import { useToast } from "../../hooks/useToast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../ui/Button";
-import { Card } from "../ui/Card";
+// import { Card } from "../ui/Card";
 import { useIsMobile } from "../../hooks/useMobile";
 import PixelCoin from "../pixel/PixelCoin";
 
@@ -167,21 +167,21 @@ const FlashcardStudy = () => {
     }
   };
 
-  const getStatusBg = (status: CardStatus): string => {
-    switch (status) {
-      case 'red': return 'bg-red-500';
-      case 'yellow': return 'bg-yellow-500';
-      case 'green': return 'bg-green-500';
-    }
-  };
+  // const getStatusBg = (status: CardStatus): string => {
+  //   switch (status) {
+  //     case 'red': return 'bg-red-500';
+  //     case 'yellow': return 'bg-yellow-500';
+  //     case 'green': return 'bg-green-500';
+  //   }
+  // };
 
-  const getStatusLabel = (status: CardStatus) => {
-    switch (status) {
-      case 'red': return 'RED - NEW';
-      case 'yellow': return 'YELLOW - LEARNING';
-      case 'green': return 'GREEN - MASTERED';
-    }
-  };
+  // const getStatusLabel = (status: CardStatus) => {
+  //   switch (status) {
+  //     case 'red': return 'RED - NEW';
+  //     case 'yellow': return 'YELLOW - LEARNING';
+  //     case 'green': return 'GREEN - MASTERED';
+  //   }
+  // };
 
   const onTouchStart = (e: React.TouchEvent) => {
     if (!isMobile || !isFlipped || answered) return;
@@ -260,7 +260,7 @@ const FlashcardStudy = () => {
       addXP(xpEarned);
     }
     
-    const wasCorrect = selectedStatus !== 'red';
+    // const wasCorrect = selectedStatus !== 'red';
     
     try {
       const response = await fetch('/api/cardprogress/new', {
