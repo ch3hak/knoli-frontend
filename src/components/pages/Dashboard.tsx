@@ -185,7 +185,7 @@ const Dashboard = () => {
             <p className="font-retro text-lg text-muted-foreground">Generate cards from documents</p>
           </Card>
 
-          <Card className="p-6 cursor-pointer">
+          <Card onClick={() => navigate("/study-all")} className="p-6 cursor-pointer">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 border-4 border-foreground bg-status-green flex items-center justify-center shadow-[2px_2px_0px_hsl(var(--foreground))]">
                 <BookOpen className="w-6 h-6 text-primary-foreground" />

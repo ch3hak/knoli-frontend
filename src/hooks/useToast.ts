@@ -109,6 +109,12 @@ export function toast(props: ToastProps = {}): ToastReturn {
     id,
     ...props,
     open: props.open ?? true,
+    onOpenChange: (open: boolean) => {
+      if (!open) {
+        dispatch({ type: "DISMISS_TOAST", toastId: id });
+      }
+      props.onOpenChange?.(open);
+    },
   };
 
   dispatch({ type: "ADD_TOAST", toast: toastObj });

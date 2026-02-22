@@ -7,6 +7,7 @@ import CreateCard from "./components/pages/CreateCard";
 import DeckView from "./components/pages/DeckView";
 import FlashcardStudy from "./components/pages/FlashcardStudy";
 // import Profile from "./components/pages/Profile";
+import StudyAll from './components/pages/StudyAll';
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "./components/ui/Toaster";
 import AIUpload from "./components/pages/AIUpload";
@@ -24,7 +25,8 @@ export default function App() {
         { path: "/deck/:id", element: <DeckView /> },
         { path: "/deck/:id/card/new", element: <CreateCard /> },
         { path: "/deck/:id/study", element: <FlashcardStudy /> },
-        { path: "/upload", element: <AIUpload /> }
+        { path: "/upload", element: <AIUpload /> },
+        { path:"/study-all", element: <StudyAll />}
         // { path: "/profile", element: <Profile /> },
       ],
     },

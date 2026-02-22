@@ -62,30 +62,29 @@ const CreateDeck = () => {
 
   return (
     <div className="mt-6 sm:-mt-1 min-h-screen p-6 scanlines">
-        <div className="max-w-2xl mx-auto">
-            <div className="mb-6 animate-fade-in">
-                <Button 
-                    variant="ghost" 
-                    onClick={() => navigate("/dashboard")} 
-                    className="hidden sm:flex mb-8"
-                >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
-                    <p className="text-sm">Back to Dashboard</p>
-                </Button>
-
-                <div className="flex items-center gap-3 sm:block">
-                    <Button 
-                        variant="ghost" 
-                        onClick={() => navigate("/dashboard")} 
-                        className="sm:hidden p-1 mr-2 bg-primary text-primary-foreground"
-                        >
-                        <ArrowLeft className="w-6 h-4" />
-                    </Button>
-                <div className="flex-1">
-                    <h1 className="text-[18px] sm:text-3xl font-bold">Create New Deck</h1>
-                    <p className="text-muted-foreground text-sm sm:text-base">Start organizing your flashcards</p>
-                </div>
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-6 animate-fade-in">
+          <Button 
+            variant="ghost" 
+            onClick={() => navigate("/dashboard")} 
+            className="hidden sm:flex mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            <p className="text-sm">Back to Dashboard</p>
+          </Button>
+          <div className="flex items-center gap-3 sm:block">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate("/dashboard")} 
+              className="sm:hidden p-1 mr-2 bg-primary text-primary-foreground"
+            >
+              <ArrowLeft className="w-6 h-4" />
+            </Button>
+            <div className="flex-1">
+              <h1 className="text-[18px] sm:text-3xl font-bold">Create New Deck</h1>
+              <p className="text-muted-foreground text-sm sm:text-base">Start organizing your flashcards</p>
             </div>
+          </div>
         </div>
         <Card className="border-2 shadow-(--shadow-card) animate-slide-up">
           <CardHeader>

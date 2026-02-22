@@ -159,21 +159,29 @@ const AIUpload = () => {
       <div className="fixed bottom-4 left-4 w-6 h-6 border-4 border-foreground bg-status-green" />
       <div className="fixed bottom-4 right-4 w-6 h-6 border-4 border-foreground bg-primary" />
 
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-8 mt-8 animate-fade-in">
-        <Button 
-            variant="ghost"
+      <div className="max-w-2xl mt-2 sm:mt-0 mx-auto">
+        <div className="mb-3 sm:mb-4 animate-fade-in">
+          <Button 
+            variant="ghost" 
             onClick={() => navigate("/dashboard")} 
-            className="mb-4 sm:mb-7 hidden sm:flex"
+            className="hidden sm:flex mb-3"
           >
-            <ArrowLeft className="mr-2 w-4 h-4" />
-            BACK TO DASHBOARD
-        </Button>
-          
-          <h1 className="font-pixel text-2xl sm:text-3xl mb-2">AI DOCUMENT UPLOAD</h1>
-          <p className="font-retro text-xl text-muted-foreground">
-            Generate flashcards from your documents using AI
-          </p>
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            <p className="text-sm">Back to Dashboard</p>
+          </Button>
+          <div className="mt-6 flex items-start gap-3 sm:block">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate("/dashboard")} 
+              className="sm:hidden p-1 mr-2 bg-primary text-primary-foreground"
+            >
+            <ArrowLeft className="w-6 h-4" />
+            </Button>
+            <div className="flex-1">
+              <h1 className="text-[18px] sm:text-3xl font-bold">AI DOCUMENT UPLOAD</h1>
+              <p className="text-muted-foreground text-sm sm:text-base">Generate flashcards from your documents using AI</p>
+            </div>
+          </div>
         </div>
 
         {error && (
@@ -189,14 +197,14 @@ const AIUpload = () => {
         )}
 
         <div className="bg-card border-4 border-foreground shadow-[4px_4px_0px_var(--color-foreground)] animate-slide-up">
-          <div className="p-6 border-b-4 border-foreground">
+          <div className="p-4 border-b-4 border-foreground">
             <h2 className="font-pixel text-sm mb-1">UPLOAD DOCUMENT</h2>
-            <p className="font-retro text-lg text-muted-foreground">
+            <p className="font-retro leading-tight text-lg text-muted-foreground">
               Upload a PDF, Word document, or text file and let AI create flashcards for you
             </p>
           </div>
           
-          <div className="p-6 space-y-6">
+          <div className="py-4 px-6 space-y-4">
             {decks.length === 0 && !isCreating ? (
               <div className="text-center p-8 border-4 border-dashed border-muted">
                 <BookOpen className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
@@ -217,7 +225,12 @@ const AIUpload = () => {
                       <select
                         value={selectedDeckId}
                         onChange={(e) => setSelectedDeckId(e.target.value)}
-                        className="flex-1 p-3 border-4 border-foreground bg-input font-retro text-lg focus:outline-none focus:ring-2 focus:ring-ring"
+                        className="flex-1 p-2 sm:p-3 pr-10 border-4 border-foreground bg-input font-retro text-lg focus:outline-none focus:ring-2 focus:ring-ring appearance-none"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a1a' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'right 12px center',
+                        }}
                         disabled={isProcessing}
                       >
                         {decks.map((deck) => (
@@ -268,7 +281,7 @@ const AIUpload = () => {
               </div>
             )}
 
-            <div className="border-4 border-dashed border-foreground p-12 text-center transition-colors hover:border-primary">
+            <div className="border-4 border-dashed border-foreground p-6 sm:p-10 text-center transition-colors hover:border-primary">
               <input
                 type="file"
                 id="file-upload"
@@ -302,7 +315,7 @@ const AIUpload = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="flex flex-col items-center space-y-4 h-40">
                     <div className="w-16 h-16 border-4 border-foreground bg-accent flex items-center justify-center mx-auto shadow-[2px_2px_0px_var(--color-foreground)]">
                       <Upload className="w-8 h-8 text-accent-foreground" />
                     </div>
@@ -339,7 +352,7 @@ const AIUpload = () => {
                 type="button"
                 onClick={() => navigate("/dashboard")}
                 disabled={isProcessing}
-                className="px-4 py-3 border-4 border-foreground bg-card font-pixel text-xs shadow-[4px_4px_0px_var(--color-foreground)] disabled:opacity-50 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_var(--color-foreground)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+                className="px-2 sm:px-4 py-3 border-4 border-foreground bg-card font-pixel text-xs shadow-[4px_4px_0px_var(--color-foreground)] disabled:opacity-50 hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_var(--color-foreground)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
               >
                 CANCEL
               </button>
@@ -347,7 +360,7 @@ const AIUpload = () => {
 
             <div className="bg-muted/50 border-4 border-foreground p-4">
               <p className="font-pixel text-xs mb-3">HOW IT WORKS:</p>
-              <ol className="list-decimal list-inside space-y-2 font-retro text-lg text-muted-foreground">
+              <ol className="list-decimal leading-tight list-inside space-y-2 font-retro text-lg text-muted-foreground">
                 <li>Upload your study material or notes</li>
                 <li>AI analyzes the content and extracts key concepts</li>
                 <li>Flashcards are automatically generated (5-50 cards based on content)</li>
